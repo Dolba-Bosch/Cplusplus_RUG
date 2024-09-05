@@ -1,0 +1,8 @@
+Description and summary
+
+The first exercise is about writing a 'hello world' program in c++.
+
+
+
+
+
