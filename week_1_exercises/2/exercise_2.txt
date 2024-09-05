@@ -1,0 +1,22 @@
+Exercise 2
+C++
+- What is the difference between a declaration and a definition?
+A declaration introduces a name into the program and specifies which type it has
+A definition gives a value to a name.
+
+- What are header files used for?
+Header files are a way to reuse code. A header file can contain a set of 
+functions and variables that can then be included in other C++ files.
+For example, the iostream header file contains the functionality of cout and cin
+So instead of having to define cout and cin in every file, the iostream header 
+file can be included in the file.
+
+- In what part of the construction process does the compiler use header files 
+and in what part libraries?
+Header files contain source code that is included in the program.
+Libraries contain precompiled object code that is linked to the program.
+Hence header files are used during the compilation process and libraries are 
+used during the linking process.
+
+-Is a library an object module?
+
