@@ -1,0 +1,17 @@
+Exercise 3
+
+- Describe 6 new additions to C++ which are not available in C.
+1. C++ has classes which are not available in C. Classes are a way to group
+data and functions together. This makes it easier to work with data and
+functions that are related to each other.
+2. C++ has operator overloading (adding new functionality to operators) 
+which is not available in C.
+3. C++ has more possibilities for data hiding. Which can make data definitions
+cleaner.
+4. Functions in C++ can be defined inside a struct which makes it cleaner to
+work with. In C the function would require a pointer to the struct to work.
+5. C++ added references which is like an alias or synonym for a variable. This 
+can make code cleaner and easier to read.
+6. C++ added the scope resolution operator (::) which allows you to use
+variables with the same name but with a different scope. This is not available
+in C.
