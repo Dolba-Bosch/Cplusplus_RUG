@@ -19,4 +19,14 @@ Hence header files are used during the compilation process and libraries are
 used during the linking process.
 
 -Is a library an object module?
+Yes, a library is precompiled object code which is equivalent to an object 
+module. 
+
+-  Why is an object file obtained after compiling a source containing 
+int main() not an executable program? 
+An object file is not an executable program as it contains code that references
+functions and variables that are not defined in the object file but rather in
+other object files or libraries. By linking the object file with other object
+files and libraries, the references are resolved and an executable program is
+created.
 
