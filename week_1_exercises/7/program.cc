@@ -24,5 +24,6 @@ union u
 
 int main()
 {
+    // Create the union and bitfield using designated initialization
     cout << hex << u{.bitfield{0,7,15,10,6,7,15,15,7,0,3}}.value;
 }
