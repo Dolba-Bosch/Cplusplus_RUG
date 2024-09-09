@@ -10,7 +10,7 @@ g++ hello.o -o hello --std=c++26 -Wall -s
 - A short description of the object file and executable:
 When the compiler compiles the program, the C++ code gets compiled into 
 machine code. The object file contains this machine code. This is not enough
-however as the C++ code may contain dependencies like iostream or others. These
+however as the C++ code may contain dependencies like libraries. These
 dependencies have been compiled earlier and to create the executable, the
 compiler takes all the object files of the C++ script and dependencies and 
 links them together in a single executable. 
