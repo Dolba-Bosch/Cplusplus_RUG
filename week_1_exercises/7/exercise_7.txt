@@ -1,0 +1,4 @@
+The output of the program is obtained by running:
+g++ program.cc --std=c++26 -Wall -o program; ./program >> exercise_7.txt;
+This results in the following output:
+c0ffeecafe
