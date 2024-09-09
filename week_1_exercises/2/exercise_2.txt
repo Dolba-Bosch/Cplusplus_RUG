@@ -27,6 +27,6 @@ int main() not an executable program?
 An object file is not an executable program as it contains code that references
 functions and variables that are not defined in the object file but rather in
 other object files or libraries. By linking the object file with other object
-files and libraries, the references are resolved and an executable program is
-created.
+files and libraries, the references are resolved and an executable program 
+can be created.
 
