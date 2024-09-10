@@ -4,8 +4,8 @@ The first exercise is about writing a 'hello world' program in c++.
 
 - To create the object file and executable respectively, the following 
 commands were used:
-g++ hello.cc -c --std=c++26 -Wall
-g++ hello.o -o hello --std=c++26 -Wall -s
+g++ hello.cc -c --std=c++26 -Wall -Werror
+g++ hello.o -o hello --std=c++26 -Wall -Werror -s
 
 - A short description of the object file and executable:
 When the compiler compiles the program, the C++ code gets compiled into 

@@ -1,0 +1,5 @@
+An exercise into the differences between C and C++.
+
+Spoiler: it's mainly the type system, maybe also some syntax for polymorphism,
+as well as function overloading. Later on, it was templates and generics. Now it's
+also (lambda) anonymous functions and coroutines.

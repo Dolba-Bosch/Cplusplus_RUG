@@ -1,0 +1,85 @@
+1.
+Question:
+ In C++, what's the difference between a declaration and a definition ?
+
+Answer:
+ A declaration is the phase where the compiler parses the source-code, encounters
+ a new identifier (such as for a variable/constant, a function, a type) and puts
+ it in its symbols table. But at this point, the symbol mostly acts as a reference
+ point to which it can later assign values.
+
+ A definition is the actual assignment of a value to a symbol (which needs to be
+ present in the symbol table, unlike languages like Python which can treat the
+ definition also as a declaration, where the type is dynamically deduced, like an
+ `auto`). In the case of a function it's actually the assignment of a body of code.
+ And for a type, it's probably improper to say "assignment", but essentially it's
+ the association between the type's name and an expression which the type system
+ evaluates.
+
+ Declaration and definition can occur in the same statement, or in separate statements,
+ but when they appear in different statements the order is declaration first and 
+ definition after.
+
+2.
+Question:
+ What are header files used for ?
+
+Answer:
+ Header files are a way to reuse code. They can be used for defining a graph of dependency. 
+ There are a few things to consider here. One is the implementation file (*.cc) which is 
+ a modularization for implementors. 
+
+ Headers are used mainly for defining symbols used by implementation files (*.cc).
+ These can be constants, functions, extern symbols to be binded from other places.
+
+ Header files are also necessary when the implementation code is actually not available
+ because it's delivered as a pre-compiled binary, but the compiler requires some 
+ "type system meta-data about the lib file". This is what allows for "gluing" pre-compiled
+ machine code (which kind of lost its type information) with the language's type system.
+
+3.
+Question:
+ When a compiler creates a program, in what part of the construction process does
+ it use header files and in what part libraries ?
+
+Answer:
+ Header files contain source code that is included in the program.
+ Libraries contain precompiled object code that is linked to the program.
+ Hence header files are used during the compilation process and libraries are 
+ used during the linking process.
+
+ Header files are written in the "type system's programming language", so they are
+ mostly used by the compiler to do correctness checking. It is the pre-processor which 
+ (sometimes conditionally) gets to insert the header code in the appropriate places.
+
+4.
+Question:
+ Is a library an object module ? Explain, and do not just answer yes or no.
+
+Answer:
+
+ A library is a set of objects (it could involve just one, but also multiple).
+ The object is used in the linking phase to actually obtain an executable, but the 
+ point is that it's a singular file.
+
+5.
+Question:
+ Why is an object file obtained after compiling a source containing `int main()`,
+ and not an executable program ?
+
+Answer:
+ An object file is not an executable program as it contains code that references
+ functions and variables that are not defined in the object file itself, but rather
+ in other object files or libraries. By linking the object file with other object
+ files and libraries, the references are resolved and an executable program 
+ can be created.
+
+ If anything, this is more about the ability to reuse object files in order
+ to possibly produce multiple executable formats.
+
+ As an example, the standard library *.so file can have different versions,
+ or even different implementation vendors.
+
+ Also, in an object file the start address is an "invalid 0x00", whereas in an
+ executable file it actually has a valid entry point. (see our odjdump of exercise
+ 1 for an example).

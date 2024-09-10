@@ -1,0 +1,3 @@
+Understand the meaning of core concepts in C++. A questions and answers exercise,
+focused mainly on the compilation process and multi-source programs involving
+header files.

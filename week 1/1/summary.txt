@@ -1,0 +1,65 @@
+Description and summary
+
+- A classical program used to test whether the compiler suite works and if
+the executable format is indeed the correct one.
+
+- To create the object file and executable respectively, the following 
+commands were used:
+
+    g++ hello.cc -c --std=c++26 -Wall -Werror -pedantic
+    g++ hello.o -o hello.out --std=c++26 -Wall -Werror -s
+
+    ./hello.out > output.txt
+
+- A short description of the object file and executable:
+When the compiler compiles the program, the C++ code gets compiled into 
+machine code. The object file contains this machine code. This is not enough
+however as the C++ code may contain dependencies like libraries. These
+dependencies have been compiled earlier and to create the executable, the
+compiler takes all the object files of the C++ script and dependencies and 
+links them together in a single executable. 
+
+- More detailed summary from running the command:
+    objdump hello.o --all-headers
+
+hello.o:
+ 6568 bytes
+ file format: elf64-x86-64
+ architecture: i386:x86-64
+ flags: 0x11 = HAS RELOC, HAS_SYMS
+ start address: 0x0
+
+    objdump hello.out --all-headers
+
+hello.out:
+ 14408 bytes
+ file format: elf64-x86-64
+ architecture: i386:x86-64
+ flags 0x112 = EXEC_P, D_PAGED, HAS_SYMS
+ start address: 0x401060
+ dynamic section:
+  needed: libstdc++.so.6
+          libm.so.6
+          libgcc_s.so.1
+          libc.so.6
+ version references:
+  GLIBC_2.34
+  GLIBCXX_3.4.32 # this is what initially caused me a problem
+  GLIBCXX_3.4
+
+- The compiled program when run gives the following output
+Hello world
+
+- The requested filesizes are obtained by running 
+    wc --bytes ./* > sizes
+
+  432 ./commands.sh~
+  661 ./hello.cc
+  455 ./hello.cc~
+ 6568 ./hello.o
+14408 ./hello.out
+   77 ./order.txt
+ 1942 ./summary.txt
+24543 total
+
+iostream    3074  # /usr/local/gcc-14.2.0/include/c++/14.2.0/iostream
