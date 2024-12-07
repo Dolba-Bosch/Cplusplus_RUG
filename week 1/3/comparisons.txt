@@ -1,0 +1,55 @@
+First of all:
+ (set operation) (C++99 \ C11) = {mainly things that have to do with the type system}
+
+ 1. Operator overloading. Actually that's just a sub-case of function overloading.
+ But also consider that you cannot add new operator symbols.
+
+ It allows re-using an identifier, and differentiating which function call is intended
+ by looking at the parameter lists.
+
+ 2. Polymorphism is integrated into the type system. There are also virtual functions
+ and the table of (virtual) function pointers.
+
+ Specifically, polymorphism it the ability to have a "shared set of methods"
+ between multiple types, so essentially a "shared interface".
+
+ 3. Stack unwinding in the form of exception handling.
+
+ A scope can throw an exception which, if handled locally, then there is no
+ need to "unwind the stack", but if the exception isn't handled in the current function, 
+ then the stack frame will be "unwound", thus forcefully returning into the caller's 
+ scope.
+
+ This happens recursively, until either the exception is handled, or the program 
+ crashes.
+
+ 4. Name mangling and the usage of `extern "C"` when wanting to inter-operate.
+
+ Name mangling is probably a consequence of function overloading. Those names actually
+ incorporate type information about the symbol into the object files (and executables).
+
+ 5. C++ added references which is like an alias or synonym for a variable. This 
+ can make code cleaner and easier to read.
+
+ Reference semantics instead of always using pointers. References are also verified
+ at compile-time in the sense that there can't be nullptr underneath a reference.
+
+ 6. Constexpr expressions, or otherwise "compile-time expressions".
+
+ Depending on the version of C++ that one uses, there might be more data-structures that
+ are supported at compile-time. I've even heard of an entire ARM emulator being run at
+ compile-time, and the run-time simply prints out the result of a program executing on
+ top of the emulator.
+
+ 5. Encapsulation is possible in both C and C++, but C lacks access control
+ specifiers (data hiding).
+
+ 7*. Templates, although this was not originally the case.
+
+ 8*. The type checking in C++ is generally more strict than in C.
+
+ 9*. C++ supports lambda functions (or annonymous functions).
+
+ 10*. C++ has a focus on RAII. Actually, it's not really about RAII, but it's about
+ having to use constructors and destructors. In C, you could instead just allocate
+ memory and manually call an initialization function, when you want to, if you want to.

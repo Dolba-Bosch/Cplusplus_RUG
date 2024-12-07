@@ -1,0 +1,12 @@
+#!/bin/bash
+g++ --version
+g++ -c hello.cc -o hello.o --std=c++26 -lstdc++ -Wall -Werror
+g++ hello.o -s -o hello.out
+
+./hello.out > output.txt
+
+# I noticed that using the script this way seems to not read ~/.bashrc;
+# I assume this because because my system-wide g++ is still 11.4.0,
+# and using this script causes --std=c++26 to not work; how unexpected...
+
+# -----------------------------------------------------------------------

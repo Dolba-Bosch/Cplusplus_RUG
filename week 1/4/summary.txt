@@ -1,0 +1,34 @@
+Topic:
+    Raw String Literals, (Simple) String Literals, their automatic concatenation
+    by the compiler, combining multiple null-byte terminated strings into one.
+
+Context:
+    "When solving the exercise you'll notice that you won't be able to use the
+    R"(...)" form of the RSLs. Formulate (submit) a rule telling you when this
+    form can and cannot be used."
+
+Answer:
+    It's not about so much about "can and cannot be used", but rather what is
+    your intent. If you wish to preserve all characters, and not escape anything,
+    then use Raw String Literals. If you do wish to escape characters, then use
+    (Simple "") String Literals.
+
+    So for example, when programming in OpenGL/Vulkan, one could copy-paste code
+    from another file and assign it to a constant directly in the source-code.
+    It would be safer to have that be a Raw String Literal which doesn't escape
+    any characters, since the OpenGL/Vulkan compiler might actually require them.
+
+Side topics to discuss:
+    Small string optimization, fit them in a register, maybe even use
+    7-bit ASCII instead of 8-bit.
+
+    How the compiler can sometimes fit multiple (sub-)strings into a
+    single (super-)string.
+
+    Does std::string still use '\0' or not ?
+	
+    Are there strings which behave like malloc() ? In the sense that the pointer
+    is indeed the beginning of the character sequence, but it is preceded by the
+    length of the sequence.
+
+    What other string optimizations do you know of ?

@@ -1,0 +1,1 @@
+Bit trickery in order to determine the least significant bit of an unsigned integer.

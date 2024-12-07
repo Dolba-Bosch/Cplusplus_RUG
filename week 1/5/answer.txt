@@ -1,0 +1,20 @@
+
+ Redirection is mainly about the stdin, stdout and stderr streams that any process has,
+ by default. So let's consider the given example
+
+                       program < in > out
+
+ This should stream into the stdin of the `program` process, the contents of the file "in",
+ while also streaming the process's output (whatever is printed to the terminal using
+ std::cout) into the file "out".
+
+ In the case of
+                       program | less
+ the output of program is piped to the program less. In other words the ouput of
+ program gets used as the input of less.
+
+
+ Piping on the other hand essentially links the stdout of a previous process with the
+ stdin of the following process. The shell probably creates a temporary file behind the
+ scenes, which is actually redirected to from the first process's stdout, and redirected
+ from into the second process's stdin.
